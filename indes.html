@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نموذج التسجيل</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center mb-4">التسجيل</h2>
+    <form id="signupForm" class="space-y-4">
+      <input type="text" id="name" placeholder="الاسم الكامل" required class="w-full px-3 py-2 border rounded-xl" />
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required class="w-full px-3 py-2 border rounded-xl" />
+      <input type="password" id="password" placeholder="كلمة المرور" required class="w-full px-3 py-2 border rounded-xl" />
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">تسجيل</button>
+    </form>
+    <p id="status" class="text-center text-green-600 mt-4 hidden">تم التسجيل!</p>
+  </div>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      console.log("اسم:", name);
+      console.log("الإيميل:", email);
+      console.log("كلمة المرور:", password);
+
+      form.reset();
+      status.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
